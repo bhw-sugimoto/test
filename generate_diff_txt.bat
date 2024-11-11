@@ -7,7 +7,7 @@ set FILE=%2
 set SHA=%3
 
 :: 出力先ディレクトリ（絶対パスを指定）
-set output_dir=%USERPROFILE%\Desktop\GitDiffs
+set output_dir=%USERPROFILE%\Desktop
 
 :: 差分を保存するファイル名を設定
 set diff_file=%output_dir%\diff_%SHA%.txt
