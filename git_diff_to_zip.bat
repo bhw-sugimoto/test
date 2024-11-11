@@ -1,15 +1,15 @@
-if "%2" equ "" (
-  set param1=HEAD
-  set param2=%1
+if "%2" EQU "" (
+  set PARAM1=HEAD
+  set PARAM2=%1
 ) else (
-  set param1=%1
-  set param2=%2
+  set PARAM1=%1
+  set PARAM2=%2
 )
 
 setlocal enabledelayedexpansion
-set diff=
-for /f "usebackq" %%i in (`git diff --name-only --diff-filter=ACMR %param2% %param1%`) do (
-  set diff=!diff! "%%i"
+set RET_DIR=
+for /F "usebackq" %%i in (`git diff --name-only %PARAM1% %PARAM2%`) do (
+  set RET_DIR=!RET_DIR! "%%i"
 )
 
-git archive --format=zip --prefix=diff_archive/ %param1% %diff% --output=_list-archive.zip
+git archive --format=zip --prefix=archive/ %PARAM1% %RET_DIR% -o archive.zip
