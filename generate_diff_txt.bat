@@ -1,23 +1,26 @@
 @echo off
 setlocal
 
-:: 引数として渡されたパラメータを取得
-set REPO=%1
-set FILE=%2
-set SHA=%3
+:: 引数が正しく渡されているか確認
+if "%SHA%"=="" (
+    echo Error: SHA is empty
+    exit /b
+)
+if "%FILE%"=="" (
+    echo Error: FILE is empty
+    exit /b
+)
 
-:: 出力先ディレクトリ（絶対パスを指定）
-set output_dir=%USERPROFILE%\Desktop
+:: 出力ファイルが正しいディレクトリに作成されるか確認
+set OUTPUT_DIR=%USERPROFILE%\Desktop
+set DIFF_FILE=%OUTPUT_DIR%\diff_%SHA%.txt
 
-:: 差分を保存するファイル名を設定
-set diff_file=%output_dir%\diff_%SHA%.txt
+:: Gitコマンド実行
+git diff "%SHA%^" "%SHA%" -- "%FILE%" > "%DIFF_FILE%"
 
-:: リポジトリに移動して差分を取得
-git -C %REPO% diff %SHA^ %SHA% -- %FILE% > %diff_file%
-
-:: 結果を表示
-if exist %diff_file% (
-    echo Diff saved to %diff_file%
+:: 結果の確認
+if exist "%DIFF_FILE%" (
+    echo Diff saved to "%DIFF_FILE%"
 ) else (
     echo Error occurred while generating diff.
 )
