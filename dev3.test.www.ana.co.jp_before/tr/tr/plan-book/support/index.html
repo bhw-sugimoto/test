@@ -2387,43 +2387,56 @@ Ancak kullandığınız cihaza bağlı olarak besleme akımı yeterli gelmeyebil
 
 <!-- /ANA-1608 -->
 </div>
-<div class="ANA-0039 aem-GridColumn aem-GridColumn--default--12">
-<!-- ANA-0039 -->
-    <div style="padding-left:15px;padding-right:15px;" class="www2_module">
-     
-         <!-- cn-0127 -->
-<!-- Search/Book flights START -->
-<script type="text/javascript">
-$(function() {
- $('#module01').intwwsModule('secondModuleDisplay', {
-
-
-
-
-
-
-
-
-
-
-
-  m_isDispHoliday : false
- });
-});
-</script>
-<div class="d_moduleMain">
-<div class="d_moduleArea d_moduleLarge" id="module01">
-<h2>Search/Book flights</h2>
-</div>
-</div>
-<!-- Search/Book flights END -->
-<!-- / cn-0127 -->
-     
-    </div>
-<!--/ ANA-0039-->
-
+<div class="experiencefragment aem-GridColumn aem-GridColumn--default--12">
 
     
+    
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="ANA-xf-container aem-GridColumn aem-GridColumn--default--12">
+
+		
+        	                    <!-- ANA-0060 -->
+                    <script type="text/javascript" src="/common-layout2/js/wws-default-settings.js?231220"></script>
+                    <script>
+                      window.addEventListener('DOMContentLoaded', function() {
+                        new window.BookingManager({
+                          type: 'wws',
+                          mountPointId: 'booking-modal-bottom-hero',
+                          lang: `${window.beSideLang}`,
+                          connectionKind: `${window.connectionKind}`,
+                          enableValues: {
+                            personalizeAirport: true,
+                            externalParams: true,
+                            searchHistories: true,
+                            usualRegistration: true,
+                          },
+                          activeContents: {
+                            wws: {
+                              reserve: false,
+                              status: false,
+                              confirm: true,
+                              checkin: false
+                            }
+                          },
+                          activeTab: 'wws_confirm'
+                        });
+                      });
+                    </script>
+                    <div id="booking-modal-bottom-hero"></div>
+                    <!-- / ANA-0060 -->
+
+        
+        
+
+
+</div>
+
+    
+</div>
+
 
 </div>
 <div class="ANA-1604 text aem-GridColumn--offset--medium--0 aem-GridColumn--medium--none aem-GridColumn--offset--large--0 aem-GridColumn--large--none aem-GridColumn--medium--12 aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--large--12">
